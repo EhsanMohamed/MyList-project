@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddToList">
+
+
+    <EditText
+        android:id="@+id/editText_Title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/custom_background"
+        android:ems="10"
+        android:hint="Note Title"
+        android:maxLength="10"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editText_AddNote"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/editText_Title"
+            android:background="@drawable/custom_background"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Add Note"
+            android:inputType="textMultiLine"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            />
+
+    <TextView
+        android:id="@+id/textView_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText_AddNote"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="90dp"
+        android:text="Set Alarm To This Note :"
+        android:textColor="@color/la"
+        android:textSize="15sp"
+        android:textStyle="bold|italic" />
+
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText_AddNote"
+        android:layout_marginTop="45dp"
+        android:layout_toRightOf="@+id/textView_show"
+        android:checked="false"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+    <TextView
+        android:id="@+id/textView_SelectTime"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textView_show"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/custom_background"
+        android:drawablePadding="4dp"
+        android:ems="10"
+        android:hint="Select Time AM / PM"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_baseline_timer_24" />
+
+
+    <TextView
+        android:id="@+id/textView_SelectDate"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textView_SelectTime"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/custom_background"
+        android:drawablePadding="4dp"
+        android:ems="10"
+        android:hint="Select Date "
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_baseline_date_range_24" />
+
+
+
+    <Button
+        android:id="@+id/button_Save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_SelectDate"
+        android:background="@drawable/button_back"
+        android:text="Save"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        />
+
+
+</RelativeLayout>

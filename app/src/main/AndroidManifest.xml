@@ -20,6 +20,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyList">
+
         <activity android:name=".Splash">
 
             <intent-filter>
@@ -33,10 +34,14 @@
         <activity android:name=".MainActivity" />
 
         <receiver android:name=".BroadCast.Build_Notification"
-            android:process=":remote"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.WAKE_LOCK" />
 
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
         <receiver android:name=".BroadCast.AlarmReceiver"/>
         <service android:name=".BroadCast.RingTone" />
 

@@ -14,17 +14,17 @@ import androidx.core.app.NotificationManagerCompat;
 import com.mylist_app.mylist.R;
 
 
-
 public class Build_Notification extends  BroadcastReceiver
 {
-
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
 
+
         //set notification channel
         notificationChannel(context);
+
         int q=intent.getIntExtra("q",20);
 
         Intent stopIntent = new Intent(context, AlarmReceiver.class);
@@ -37,14 +37,16 @@ public class Build_Notification extends  BroadcastReceiver
         PendingIntent p_tapIntent = PendingIntent.getBroadcast(context, q, tapIntent, 0);
 
 
+
+
         String title = intent.getStringExtra("title");
         String time = intent.getStringExtra("time");
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context,
                 "x1")
-                .setContentTitle(title).setContentText(time)
+                .setContentTitle(title)
+                .setContentText(time)
                 .setAutoCancel(false)
-                .setFullScreenIntent(p_tapIntent,true)
                 .setContentIntent(p_tapIntent)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)

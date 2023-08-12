@@ -9,6 +9,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.view.View;
@@ -153,10 +154,7 @@ public class AddToList extends AppCompatActivity {
 
                             if(!intent_time.equals(time) || !intent_date.equals(date)){
                                 setAlarm(s_Title,time,date);}
-                            else{
-                                Toast.makeText(AddToList.this,"equls"
-                                        ,Toast.LENGTH_LONG).show();
-                            }
+
                         }
                     }
 
@@ -224,7 +222,7 @@ public class AddToList extends AppCompatActivity {
 
 
 
-    private void setAlarm(String s_Title,  String time,String date) {
+    private void setAlarm( String s_Title,  String time,String date) {
 
 
         calendar  = Calendar.getInstance();
@@ -261,14 +259,18 @@ public class AddToList extends AppCompatActivity {
 
 
         if (calendar.getTimeInMillis() >= System.currentTimeMillis()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                alarmManager.setExactAndAllowWhileIdle
+                        (AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+            } else {
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+            }
 
-            alarmManager.setExact
-                    (AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
             Toast.makeText(this,"Alarm Was Set ",Toast.LENGTH_LONG).show();
 
         }
         else {
-                 Toast.makeText(this,"Time is inv ",Toast.LENGTH_LONG).show();
+                 Toast.makeText(this,"Time is invalid ",Toast.LENGTH_LONG).show();
         }
 
     }
